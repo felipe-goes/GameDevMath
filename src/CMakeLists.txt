@@ -1,15 +1,17 @@
-add_executable(ProjectName main.cpp)
+add_executable(Assignment1 main.cpp)
 
 include_directories(include)
 
-add_library(dummylib "")
+add_library(game "")
 
-target_sources(dummylib
+target_sources(game
   PRIVATE
-    DummyLib.cpp
+    Game.cpp
+    Algebra.cpp
+    Player.cpp
   )
 
-target_link_libraries(ProjectName
+target_link_libraries(Assignment1
   PRIVATE
-    dummylib
+    game
   )

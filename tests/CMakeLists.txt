@@ -1,13 +1,13 @@
-add_executable(dummy main-test.cpp)
+add_executable(collision main-test.cpp collision-test.cpp)
 
-target_link_libraries(dummy
+target_link_libraries(collision
   PRIVATE
-    dummylib
+    game
   )
 
 add_test(
   NAME
-    dummy
+    collision
   COMMAND
-    $<TARGET_FILE:dummy>
+    $<TARGET_FILE:collision>
   )
