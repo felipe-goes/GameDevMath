@@ -3,14 +3,16 @@
 #include "../src/include/Player.hpp"
 #include <vector>
 
-bool testCollision(std::vector<float> playerCenter, float radius,
+Player testCollision(std::vector<float> playerCenter, float radius,
                    std::vector<float> enemy)
 {
   // Arrange
   Player player(playerCenter, radius);
 
   // Act
-  return player.collide(enemy);
+  player.collide(enemy);
+
+  return player;
 }
 
 TEST_CASE("Collision between Player and Enemy.")
@@ -28,23 +30,23 @@ TEST_CASE("Collision between Player and Enemy.")
 
       SECTION("No collision.")
       {
-        bool collided = testCollision(playerCenter, 1.1, enemy);
+        Player player = testCollision(playerCenter, 1.1, enemy);
         // Assert
-        REQUIRE(collided == false);
+        REQUIRE(player.checkCollision() == false);
       }
 
       SECTION("Just collision.")
       {
-        bool collided = testCollision(playerCenter, 5, enemy);
+        Player player = testCollision(playerCenter, 5, enemy);
         // Assert
-        REQUIRE(collided == true);
+        REQUIRE(player.checkCollision() == true);
       }
 
       SECTION("Collision inside.")
       {
-        bool collided = testCollision(playerCenter, 7.3, enemy);
+        Player player = testCollision(playerCenter, 7.3, enemy);
         // Assert
-        REQUIRE(collided == true);
+        REQUIRE(player.checkCollision() == true);
       }
     }
 
@@ -55,23 +57,23 @@ TEST_CASE("Collision between Player and Enemy.")
 
       SECTION("No collision.")
       {
-        bool collided = testCollision(playerCenter, 1.1, enemy);
+        Player player = testCollision(playerCenter, 1.1, enemy);
         // Assert
-        REQUIRE(collided == false);
+        REQUIRE(player.checkCollision() == false);
       }
 
       SECTION("Just collision.")
       {
-        bool collided = testCollision(playerCenter, 5, enemy);
+        Player player = testCollision(playerCenter, 5, enemy);
         // Assert
-        REQUIRE(collided == true);
+        REQUIRE(player.checkCollision() == true);
       }
 
       SECTION("Collision inside.")
       {
-        bool collided = testCollision(playerCenter, 7.3, enemy);
+        Player player = testCollision(playerCenter, 7.3, enemy);
         // Assert
-        REQUIRE(collided == true);
+        REQUIRE(player.checkCollision() == true);
       }
     }
 
@@ -82,23 +84,23 @@ TEST_CASE("Collision between Player and Enemy.")
 
       SECTION("No collision.")
       {
-        bool collided = testCollision(playerCenter, 1.1, enemy);
+        Player player = testCollision(playerCenter, 1.1, enemy);
         // Assert
-        REQUIRE(collided == false);
+        REQUIRE(player.checkCollision() == false);
       }
 
       SECTION("Just collision.")
       {
-        bool collided = testCollision(playerCenter, 5, enemy);
+        Player player = testCollision(playerCenter, 5, enemy);
         // Assert
-        REQUIRE(collided == true);
+        REQUIRE(player.checkCollision() == true);
       }
 
       SECTION("Collision inside.")
       {
-        bool collided = testCollision(playerCenter, 7.3, enemy);
+        Player player = testCollision(playerCenter, 7.3, enemy);
         // Assert
-        REQUIRE(collided == true);
+        REQUIRE(player.checkCollision() == true);
       }
     }
 
@@ -109,23 +111,23 @@ TEST_CASE("Collision between Player and Enemy.")
 
       SECTION("No collision.")
       {
-        bool collided = testCollision(playerCenter, 1.1, enemy);
+        Player player = testCollision(playerCenter, 1.1, enemy);
         // Assert
-        REQUIRE(collided == false);
+        REQUIRE(player.checkCollision() == false);
       }
 
       SECTION("Just collision.")
       {
-        bool collided = testCollision(playerCenter, 5, enemy);
+        Player player = testCollision(playerCenter, 5, enemy);
         // Assert
-        REQUIRE(collided == true);
+        REQUIRE(player.checkCollision() == true);
       }
 
       SECTION("Collision inside.")
       {
-        bool collided = testCollision(playerCenter, 7.3, enemy);
+        Player player = testCollision(playerCenter, 7.3, enemy);
         // Assert
-        REQUIRE(collided == true);
+        REQUIRE(player.checkCollision() == true);
       }
     }
 

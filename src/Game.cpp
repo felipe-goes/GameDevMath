@@ -10,6 +10,9 @@ void Game::initVariables(void)
   enemy = {10.f, 10.f}; // X, Y
 }
 
-void Game::update(void) { collided = player.collide(enemy); }
+void Game::update(void) { player.collide(enemy); }
 
-void Game::render(void) { std::cout << "Collided: " << collided << std::endl; }
+void Game::render(void)
+{
+  std::cout << "Collided: " << player.checkCollision() << std::endl;
+}

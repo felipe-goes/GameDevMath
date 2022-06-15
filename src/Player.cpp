@@ -17,8 +17,16 @@ void Player::initVariables(void)
 }
 
 // Public Functions
-bool Player::collide(std::vector<float> enemy)
+void Player::collide(std::vector<float> enemy)
 {
   float distance = Algebra::distance(this->center, enemy);
-  return distance <= radius;
+  collided = distance <= radius;
 }
+
+bool Player::isLooking(std::vector<float> enemy, float threshold)
+{
+  return true;
+}
+
+// Accessors
+bool Player::checkCollision(void) { return collided; }
