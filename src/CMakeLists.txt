@@ -1,4 +1,4 @@
-add_executable(Assignment1 main.cpp)
+add_executable(Assignment2 main.cpp)
 
 include_directories(include)
 
@@ -11,7 +11,7 @@ target_sources(game
     Player.cpp
   )
 
-target_link_libraries(Assignment1
+target_link_libraries(Assignment2
   PRIVATE
     game
   )

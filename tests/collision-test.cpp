@@ -17,7 +17,7 @@ Player testCollision(std::vector<float> playerCenter, float radius,
 
 TEST_CASE("Collision between Player and Enemy.")
 {
-  // This test case is enough for studying purposes xD
+  // These test cases are enough for studying purposes xD
   SECTION("Player center.")
   {
     // Set player position

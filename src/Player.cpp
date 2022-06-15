@@ -16,6 +16,17 @@ void Player::initVariables(void)
   radius = 5.f;
 }
 
+// Private functions
+void Player::updateLooking(std::vector<float> enemy, float threshold)
+{
+  std::vector<float> playerNormalized = Algebra::normalize(center);
+  std::vector<float> enemyNormalized = Algebra::normalize(enemy);
+
+  float projection = Algebra::dotProduct(playerNormalized, enemyNormalized);
+
+  looking = projection >= threshold;
+}
+
 // Public Functions
 void Player::collide(std::vector<float> enemy)
 {
@@ -23,10 +34,7 @@ void Player::collide(std::vector<float> enemy)
   collided = distance <= radius;
 }
 
-bool Player::isLooking(std::vector<float> enemy, float threshold)
-{
-  return true;
-}
+bool Player::isLooking(void) { return looking; }
 
 // Accessors
 bool Player::checkCollision(void) { return collided; }

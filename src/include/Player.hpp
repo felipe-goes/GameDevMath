@@ -20,8 +20,9 @@ public:
   Player(std::vector<float> center, float radius);
 
   void collide(std::vector<float> enemy);
-  bool isLooking(std::vector<float> enemy, float threshold);
+  void updateLooking(std::vector<float> enemy, float threshold);
 
   // Accessors
   bool checkCollision(void);
+  bool isLooking(void);
 };
