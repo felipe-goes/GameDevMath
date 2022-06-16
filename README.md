@@ -28,6 +28,17 @@ PS: Usually when this tutorial use "direction" it means the vector is normalized
 
 ## 2. Spaces & Cross Product Math
 
+- Quick recap
+- Dot product recap
+- Asgmt. 1 solution (Radial trigger)
+- Asgmt. 2 solution (Look-at trigger)
+- Questions
+- Spaces
+- Asgmt. 3 solution (Space transformation)
+- World to local
+- Matrices
+- Cross product
+
 ## 3. Trigonometry
 
 ## 4. Interpolation

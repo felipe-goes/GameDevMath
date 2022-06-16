@@ -1,9 +1,16 @@
 #include "Player.hpp"
-#include <vector>
+#include "Algebra.hpp"
 
 Player::Player() { initVariables(); }
 Player::Player(std::vector<float> center, float radius)
   : center(center), radius(radius)
+{
+  basisX = {1.4142f, 1.4142f};
+  basisY = {-1.4142f, 1.4142f};
+}
+Player::Player(std::vector<float> center, float radius,
+               std::vector<float> basisX, std::vector<float> basisY)
+  : center(center), radius(radius), basisX(basisX), basisY(basisY)
 {
 }
 
@@ -34,7 +41,9 @@ void Player::collide(std::vector<float> enemy)
   collided = distance <= radius;
 }
 
-bool Player::isLooking(void) { return looking; }
-
 // Accessors
-bool Player::checkCollision(void) { return collided; }
+bool Player::checkCollision(void) const { return collided; }
+bool Player::isLooking(void) const { return looking; }
+std::vector<float> Player::getBasisX(void) const { return basisX; }
+std::vector<float> Player::getBasisY(void) const { return basisY; }
+std::vector<float> Player::getCenter(void) const { return center; }

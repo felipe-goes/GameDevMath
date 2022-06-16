@@ -70,3 +70,17 @@ TEST_CASE("Check if Player is looking at Enemy.")
 
 }
 
+TEST_CASE("Check if Player is looking at Enemy. Both in third quadrant.")
+{
+  std::vector<float> enemy = {-1.f, -1.f};
+  float threshold = 0.9;
+  float radius = 1.f;
+
+  // Arrange
+  std::vector<float> playerCenter = {-0.8, -0.8};
+  Player player = setup(playerCenter, radius, enemy, threshold);
+
+  // Assert
+  REQUIRE(player.isLooking() == true);
+}
+

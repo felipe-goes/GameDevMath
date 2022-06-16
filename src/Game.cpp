@@ -8,6 +8,7 @@ Game::~Game() {}
 void Game::initVariables(void)
 {
   enemy = {10.f, 10.f}; // X, Y
+  player = Player();
 }
 
 void Game::update(void)
