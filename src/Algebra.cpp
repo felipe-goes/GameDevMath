@@ -1,4 +1,5 @@
 #include "Algebra.hpp"
+#include <vector>
 
 Algebra::Algebra() {}
 Algebra::~Algebra() {}
@@ -48,4 +49,20 @@ const std::vector<float> Algebra::localToWorld(Player referenceVector,
 
   return {scaledBasisSum[0] + referenceVector.getCenter()[0],
           scaledBasisSum[1] + referenceVector.getCenter()[1]};
+}
+
+const std::vector<float> Algebra::minus(std::vector<float> vectorA,
+                                        std::vector<float> vectorB)
+{
+  return {vectorA[0] - vectorB[0], vectorA[1] - vectorB[1]};
+}
+
+const std::vector<float> Algebra::worldToLocal(Player referenceVector,
+                                               std::vector<float> worldVector)
+{
+  std::vector<float> subtraction =
+    Algebra::minus(worldVector, referenceVector.getCenter());
+
+  return {Algebra::dotProduct(subtraction, referenceVector.getBasisX()),
+          Algebra::dotProduct(subtraction, referenceVector.getBasisY())};
 }
