@@ -37,7 +37,7 @@ PS: Usually when this tutorial use "direction" it means the vector is normalized
 - Asgmt. 3 solution (Space transformation)
 - World to local
 - Matrices
-- Cross product
+- [Cross product](https://twitter.com/FreyaHolmer/status/1203059681691869188)
 
 ## 3. Trigonometry
 
