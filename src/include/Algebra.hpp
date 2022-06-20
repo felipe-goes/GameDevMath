@@ -19,9 +19,11 @@ public:
                                 std::vector<float> vectorB);
 
   const static std::vector<float> minus(std::vector<float> vectorA,
-                                      std::vector<float> vectorB);
+                                        std::vector<float> vectorB);
   const static std::vector<float> localToWorld(Player referenceVector,
                                                std::vector<float> localVector);
   const static std::vector<float> worldToLocal(Player referenceVector,
                                                std::vector<float> worldVector);
+  const static std::vector<float> reflect(std::vector<float> object,
+                                          std::vector<float> surface);
 };

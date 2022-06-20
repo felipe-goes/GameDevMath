@@ -66,3 +66,13 @@ const std::vector<float> Algebra::worldToLocal(Player referenceVector,
   return {Algebra::dotProduct(subtraction, referenceVector.getBasisX()),
           Algebra::dotProduct(subtraction, referenceVector.getBasisY())};
 }
+
+const std::vector<float> Algebra::reflect(std::vector<float> object,
+                                          std::vector<float> surface)
+{
+  std::vector<float> reflectScaled = {
+    Algebra::dotProduct(object, surface) * 2 * surface[0],
+    Algebra::dotProduct(object, surface) * 2 * surface[1]};
+
+  return Algebra::minus(object, reflectScaled);
+}

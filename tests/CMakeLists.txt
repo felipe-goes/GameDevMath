@@ -2,6 +2,7 @@ add_executable(collision main-test.cpp collision-test.cpp)
 add_executable(looking main-test.cpp looking-test.cpp)
 add_executable(localToWorld main-test.cpp localToWorld-test.cpp)
 add_executable(worldToLocal main-test.cpp worldToLocal-test.cpp)
+add_executable(reflect main-test.cpp reflect-test.cpp)
 
 target_link_libraries(collision
   PRIVATE
@@ -16,6 +17,10 @@ target_link_libraries(localToWorld
     game
   )
 target_link_libraries(worldToLocal
+  PRIVATE
+    game
+  )
+target_link_libraries(reflect
   PRIVATE
     game
   )
@@ -43,4 +48,10 @@ add_test(
     worldToLocal
   COMMAND
     $<TARGET_FILE:worldToLocal>
+  )
+add_test(
+  NAME
+    reflect
+  COMMAND
+    $<TARGET_FILE:reflect>
   )
