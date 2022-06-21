@@ -38,6 +38,7 @@ PS: Usually when this tutorial use "direction" it means the vector is normalized
 - World to local
 - Matrices
 - [Cross product](https://twitter.com/FreyaHolmer/status/1203059681691869188)
+- [Cross product](https://www.youtube.com/watch?v=eu6i7WJeinw)
 
 ## 3. Trigonometry
 

@@ -3,6 +3,7 @@ add_executable(looking main-test.cpp looking-test.cpp)
 add_executable(localToWorld main-test.cpp localToWorld-test.cpp)
 add_executable(worldToLocal main-test.cpp worldToLocal-test.cpp)
 add_executable(reflect main-test.cpp reflect-test.cpp)
+add_executable(mesharea main-test.cpp mesharea-test.cpp)
 
 target_link_libraries(collision
   PRIVATE
@@ -21,6 +22,10 @@ target_link_libraries(worldToLocal
     game
   )
 target_link_libraries(reflect
+  PRIVATE
+    game
+  )
+target_link_libraries(mesharea
   PRIVATE
     game
   )
@@ -54,4 +59,10 @@ add_test(
     reflect
   COMMAND
     $<TARGET_FILE:reflect>
+  )
+add_test(
+  NAME
+    mesharea
+  COMMAND
+    $<TARGET_FILE:mesharea>
   )

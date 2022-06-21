@@ -1,15 +1,17 @@
 #pragma once
 
 #include "Player.hpp"
+#include "UnityMesh.hpp"
 #include <cmath>
 #include <vector>
 
 class Algebra
 {
-public:
+private:
   Algebra();
   ~Algebra();
 
+public:
   const static float distance(const std::vector<float> player,
                               const std::vector<float> enemy);
 
@@ -26,4 +28,9 @@ public:
                                                std::vector<float> worldVector);
   const static std::vector<float> reflect(std::vector<float> object,
                                           std::vector<float> surface);
+
+  const static std::vector<float> crossProduct(std::vector<float> vectorA,
+                                               std::vector<float> vectorB);
+  const static float area(std::vector<float> vectorA, std::vector<float> vectorB);
+  const static float meshArea(UnityMesh mesh);
 };
