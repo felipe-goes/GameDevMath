@@ -31,6 +31,12 @@ public:
 
   const static std::vector<float> crossProduct(std::vector<float> vectorA,
                                                std::vector<float> vectorB);
-  const static float area(std::vector<float> vectorA, std::vector<float> vectorB);
+  const static float area(std::vector<float> vectorA,
+                          std::vector<float> vectorB);
   const static float meshArea(UnityMesh mesh);
+
+  const static std::vector<std::vector<float>>
+  turrentPlacement(std::vector<float> normal, std::vector<float> ray);
+
+  const static signed char sign(float value);
 };

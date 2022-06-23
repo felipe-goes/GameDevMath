@@ -1,15 +1,13 @@
 #include "Catch2.hpp"
 
 #include "../src/include/Algebra.hpp"
-// #include "../src/include/UnityMesh.hpp"
-// #include <vector>
 
 TEST_CASE("Test calculation of mesh areas.")
 {
   SECTION("Unity quad example.")
   {
     // Arrange
-    std::vector<std::vector<float>> vector3d(8, std::vector<float>(3));
+    std::vector<std::vector<float>> vector3d(4, std::vector<float>(3));
     vector3d[0] = {0.f, 0.f, 1.f};
     vector3d[1] = {1.f, 0.f, 1.f};
     vector3d[2] = {0.f, 1.f, 1.f};
