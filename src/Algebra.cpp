@@ -193,3 +193,24 @@ Algebra::turrentPlacement(std::vector<float> normal, std::vector<float> ray)
 
   return {x, Algebra::normalize(normal), z};
 }
+
+const std::vector<float> Algebra::localToWorldMatrix(
+  std::vector<std::vector<float>> transformationMatrix,
+  std::vector<float> vector)
+{
+  return {transformationMatrix[0][0] * vector[0] +
+            transformationMatrix[0][1] * vector[1] +
+            transformationMatrix[0][2] * vector[2] +
+            transformationMatrix[0][3] * vector[3],
+
+          transformationMatrix[1][0] * vector[0] +
+            transformationMatrix[1][1] * vector[1] +
+            transformationMatrix[1][2] * vector[2] +
+            transformationMatrix[1][3] * vector[3],
+
+          transformationMatrix[2][0] * vector[0] +
+            transformationMatrix[2][1] * vector[1] +
+            transformationMatrix[2][2] * vector[2] +
+            transformationMatrix[2][3] * vector[3],
+          1};
+}

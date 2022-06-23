@@ -35,8 +35,11 @@ public:
                           std::vector<float> vectorB);
   const static float meshArea(UnityMesh mesh);
 
+  const static signed char sign(float value);
   const static std::vector<std::vector<float>>
   turrentPlacement(std::vector<float> normal, std::vector<float> ray);
 
-  const static signed char sign(float value);
+  const static std::vector<float>
+  localToWorldMatrix(std::vector<std::vector<float>> transformationMatrix,
+                     std::vector<float> vector);
 };

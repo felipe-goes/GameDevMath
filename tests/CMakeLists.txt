@@ -4,7 +4,7 @@ add_executable(localToWorld main-test.cpp localToWorld-test.cpp)
 add_executable(worldToLocal main-test.cpp worldToLocal-test.cpp)
 add_executable(reflect main-test.cpp reflect-test.cpp)
 add_executable(mesharea main-test.cpp mesharea-test.cpp)
-add_executable(turrentplacement main-test.cpp turrentplacement-test.cpp)
+add_executable(turrent main-test.cpp turrent-test.cpp)
 
 target_link_libraries(collision
   PRIVATE
@@ -30,7 +30,7 @@ target_link_libraries(mesharea
   PRIVATE
     game
   )
-target_link_libraries(turrentplacement
+target_link_libraries(turrent
   PRIVATE
     game
   )
@@ -73,7 +73,7 @@ add_test(
   )
 add_test(
   NAME
-    turrentplacement
+    turrent
   COMMAND
-    $<TARGET_FILE:turrentplacement>
+    $<TARGET_FILE:turrent>
   )
