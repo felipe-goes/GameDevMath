@@ -142,3 +142,39 @@ TEST_CASE("Turrent box test.")
     REQUIRE(boxTransformed == expected);
   }
 }
+
+TEST_CASE("Guns placement test.")
+{
+  SECTION("Using vectors from last example.")
+  {
+    // Arrange
+    std::vector<std::vector<float>> transformationMatrix(4,
+                                                         std::vector<float>(4));
+    transformationMatrix = {{-0.707106781187f, 0, -0.707106781187f, 0},
+                            {0, 1, 0, 0},
+                            {-0.707106781187f, 0, 0.707106781187f, 0},
+                            {0, 0, 0, 1}};
+
+    std::vector<std::vector<float>> box(8, std::vector<float>(4));
+    box = {
+      {1, 0, 1, 1}, {-1, 0, 1, 1}, {-1, 0, -1, 1}, {1, 0, -1, 1},
+      {1, 2, 1, 1}, {-1, 2, 1, 1}, {-1, 2, -1, 1}, {1, 2, -1, 1},
+    };
+
+    std::vector<std::vector<float>> guns(2, std::vector<float>(4));
+
+    guns = Algebra::gunPosition(0.2f, 0.3f, 0.2f, transformationMatrix, box);
+
+    std::vector<float> leftGun(4);
+    std::vector<float> rightGun(4);
+
+    leftGun= {-1.01823376491f, 1.59999990463f, 1.81019335984f, 1.f};
+    rightGun = {-1.81019335984f, 1.59999990463f, 1.01823376491f, 1.f};
+
+    std::vector<std::vector<float>> expected(2, std::vector<float>(4));
+    expected = {leftGun, rightGun};
+
+    // Assert
+    REQUIRE(guns == expected);
+  }
+}

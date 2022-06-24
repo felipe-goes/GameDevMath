@@ -212,5 +212,34 @@ const std::vector<float> Algebra::localToWorldMatrix(
             transformationMatrix[2][1] * vector[1] +
             transformationMatrix[2][2] * vector[2] +
             transformationMatrix[2][3] * vector[3],
-          1};
+          1.f};
+}
+
+const std::vector<std::vector<float>>
+Algebra::gunPosition(float separation, float height, float length,
+                     std::vector<std::vector<float>> transformationMatrix,
+                     std::vector<std::vector<float>> box)
+{
+  std::vector<float> leftGun(4), rightGun(4);
+
+  float fixedHeight = height < -0.7f ? -0.7f : height > 0.7f ? 0.7f : height;
+  float fixedSeparation = separation < 0.f    ? 0.f
+                          : separation > 0.5f ? 0.5f
+                                              : separation;
+  float fixedLength = length < -0.4f ? -0.4f : length > 0.4f ? 0.4f : length;
+
+  leftGun = {box[5][0] / 2.f - 0.3f * fixedSeparation, 1.3f + fixedHeight,
+             0.8f + box[5][2] + fixedLength, 1};
+  rightGun = {box[4][0] / 2.f + 0.3f * fixedSeparation, 1.3f + fixedHeight,
+              0.8f + box[4][2] + fixedLength, 1};
+
+  std::vector<float> worldLeftGun(4);
+  std::vector<float> worldRightGun(4);
+  worldLeftGun = Algebra::localToWorldMatrix(transformationMatrix, leftGun);
+  worldRightGun = Algebra::localToWorldMatrix(transformationMatrix, rightGun);
+
+  std::vector<std::vector<float>> out(2, std::vector<float>(4));
+  out = {worldLeftGun, worldRightGun};
+
+  return out;
 }

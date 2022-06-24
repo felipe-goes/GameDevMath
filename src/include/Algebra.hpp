@@ -42,4 +42,9 @@ public:
   const static std::vector<float>
   localToWorldMatrix(std::vector<std::vector<float>> transformationMatrix,
                      std::vector<float> vector);
+
+  const static std::vector<std::vector<float>>
+  gunPosition(float separation, float height, float length,
+              std::vector<std::vector<float>> transformationMatrix,
+              std::vector<std::vector<float>> box);
 };
