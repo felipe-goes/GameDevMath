@@ -5,6 +5,7 @@ add_executable(worldToLocal main-test.cpp worldToLocal-test.cpp)
 add_executable(reflect main-test.cpp reflect-test.cpp)
 add_executable(mesharea main-test.cpp mesharea-test.cpp)
 add_executable(turrent main-test.cpp turrent-test.cpp)
+add_executable(polygon main-test.cpp polygon-test.cpp)
 
 target_link_libraries(collision
   PRIVATE
@@ -31,6 +32,10 @@ target_link_libraries(mesharea
     game
   )
 target_link_libraries(turrent
+  PRIVATE
+    game
+  )
+target_link_libraries(polygon
   PRIVATE
     game
   )
@@ -76,4 +81,10 @@ add_test(
     turrent
   COMMAND
     $<TARGET_FILE:turrent>
+  )
+add_test(
+  NAME
+    polygon
+  COMMAND
+    $<TARGET_FILE:polygon>
   )

@@ -243,3 +243,33 @@ Algebra::gunPosition(float separation, float height, float length,
 
   return out;
 }
+
+const std::vector<std::vector<float>> Algebra::drawPolygon(unsigned int sides,
+                                                           unsigned int density)
+{
+  if (sides < 3)
+    return {{}};
+
+  const float pi = 3.14159265359f;
+  const float pace = 2 * pi / sides;
+  float alpha = 0.f;
+
+  std::vector<std::vector<float>> vertices(sides, std::vector<float>(2));
+
+  for (int i = 0; i < sides; i++)
+  {
+    vertices[i] = {std::cos(alpha), std::sin(alpha)};
+    alpha += pace;
+  }
+
+  std::vector<std::vector<float>> sideVectors(sides, std::vector<float>(2));
+
+  unsigned int indice = 0;
+  for (int i = 0; i < density*sides; i=i+density)
+  {
+    sideVectors[indice] = Algebra::minus(vertices[(i+density)%sides], vertices[i%sides]);
+    indice++;
+  }
+
+  return sideVectors;
+}

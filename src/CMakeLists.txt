@@ -1,4 +1,4 @@
-add_executable(Assignment6 main.cpp)
+add_executable(Assignment7 main.cpp)
 
 include_directories(include)
 
@@ -12,7 +12,7 @@ target_sources(game
     UnityMesh.cpp
   )
 
-target_link_libraries(Assignment6
+target_link_libraries(Assignment7
   PRIVATE
     game
   )

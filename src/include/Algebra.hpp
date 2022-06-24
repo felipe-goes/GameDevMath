@@ -47,4 +47,7 @@ public:
   gunPosition(float separation, float height, float length,
               std::vector<std::vector<float>> transformationMatrix,
               std::vector<std::vector<float>> box);
+
+  const static std::vector<std::vector<float>>
+  drawPolygon(unsigned int sides, unsigned int density);
 };
